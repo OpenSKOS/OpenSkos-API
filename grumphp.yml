@@ -1,0 +1,11 @@
+parameters:
+    tasks:
+        phpstan:
+            autoload_file: ~
+            configuration: ~
+            level: 0
+            force_patterns: []
+            ignore_patterns: ['bin', 'config', 'docker', 'public', 'var', 'vendor']
+            triggered_by: ['php']
+            memory_limit: '-1'
+        phpcsfixer: ~

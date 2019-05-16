@@ -1,20 +1,23 @@
-rsync.sh
-application/configs/application.ini
-.idea
-cache/
-.sass-cache/
-public/data/export/*
-/data/uploads/
-/data/solr/
-/public/data/icons/
+###> symfony/framework-bundle ###
+/.env
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
 /vendor/
-/nbproject/
-/node_modules/
-/public/apidoc/
-/apidoc/
-/public/oaidoc/
-/application/configs/application.ini_backup.dist
-/application/configs/application_corrupted.ini
-/application/configs/application_backup.ini
-/application/configs/custom.ini
-/data/solr/data/
+###< symfony/framework-bundle ###
+
+.DS_Store
+.idea
+
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
