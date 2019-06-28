@@ -1,0 +1,30 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+
+
+imports:
+  - { resource: './packages/databases.yaml' }
+
+services:
+    # default configuration for services in *this* file
+
+  App\Rest\ControllerResponseListener:
+    autowire: true
+    tags:
+      - { name: 'kernel.event_listener', event: 'kernel.view' }
+
+  App\Serializer\RdfEncoder:
+    autowire: true
+    tags: ['serializer.encoder']
+
+  App\Rest\ArgumentResolver\ApiRequestResolver:
+      autowire: true
+      tags: ['controller.argument_value_resolver']
+
+  App\Rest\ArgumentResolver\InternalResourceIdResolver:
+    tags:
+      - { name: controller.argument_value_resolver, priority: 100 }

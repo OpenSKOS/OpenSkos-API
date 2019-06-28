@@ -1,0 +1,18 @@
+#TODO: Move this configuration into package level.
+#TODO: For example into config/packages/healthcheck.yaml
+
+healthcheck:
+    resource: ../../src/Healthcheck/
+    type: annotation
+
+institution:
+    resource: ../../src/OpenSkos/Institution/Controller
+    type: annotation
+
+set:
+    resource: ../../src/OpenSkos/Set/Controller
+    type: annotation
+
+conceptscheme:
+    resource: ../../src/OpenSkos/ConceptScheme/Controller
+    type: annotation
