@@ -15,6 +15,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
+/**
+ * @IgnoreAnnotation("OA\Get")
+ * @IgnoreAnnotation("OA\Response")
+ * @IgnoreAnnotation("OA\Parameter")
+ * @IgnoreAnnotation("OA\Schema")
+ */
 final class ConceptScheme
 {
     /**
@@ -35,6 +41,13 @@ final class ConceptScheme
      * @param ConceptSchemeRepository $repository
      *
      * @return ListResponse
+     *
+     * @OA\Get(
+     *     path="/conceptschemes",
+     *     tags={"Conceptscheme"},
+     *     description="Retrieve a list of conceptschemes",
+     *     @OA\Response(response="200", description="Succesfull retrieval of a list of conceptschemes")
+     * )
      */
     public function conceptschemes(
         ApiRequest $apiRequest,
@@ -58,6 +71,26 @@ final class ConceptScheme
      * @param ConceptSchemeRepository $repository
      *
      * @return ScalarResponse
+     *
+     * @OA\Get(
+     *     path="/conceptscheme/{id}",
+     *     tags={"Conceptscheme"},
+     *     description="Retrieve a specific conceptscheme",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of conceptscheme to retrieve",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="UUID",
+     *             minLength=36,
+     *             maxLength=36
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Succesfull retrieval of a conceptscheme"),
+     *     @OA\Response(response=404, description="Conceptscheme not found")
+     * )
      */
     public function conceptscheme(
         InternalResourceId $id,

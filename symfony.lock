@@ -373,5 +373,8 @@
     },
     "webmozart/path-util": {
         "version": "2.3.0"
+    },
+    "zircote/swagger-php": {
+        "version": "3.0.2"
     }
 }

@@ -15,6 +15,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
+/**
+ * @IgnoreAnnotation("OA\Get")
+ * @IgnoreAnnotation("OA\Response")
+ * @IgnoreAnnotation("OA\Parameter")
+ * @IgnoreAnnotation("OA\Schema")
+ */
 final class Institution
 {
     /**
@@ -35,6 +41,13 @@ final class Institution
      * @param InstitutionRepository $repository
      *
      * @return ListResponse
+     *
+     * @OA\Get(
+     *     path="/institutions",
+     *     tags={"Institutions"},
+     *     description="Retrieve a list of institutions",
+     *     @OA\Response(response="200", description="Succesfull retrieval of a list of institutions")
+     * )
      */
     public function institutions(
         ApiRequest $apiRequest,
@@ -58,6 +71,26 @@ final class Institution
      * @param InstitutionRepository $repository
      *
      * @return ScalarResponse
+     *
+     * @OA\Get(
+     *     path="/institution/{id}",
+     *     tags={"Institutions"},
+     *     description="Retrieve a specific institution",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of institution to retrieve",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             format="UUID",
+     *             minLength=36,
+     *             maxLength=36
+     *         )
+     *     ),
+     *     @OA\Response(response="200", description="Succesfull retrieval of an institution"),
+     *     @OA\Response(response=404, description="Institution not found")
+     * )
      */
     public function institution(
         InternalResourceId $id,

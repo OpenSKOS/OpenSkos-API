@@ -29,5 +29,8 @@ Run psalm by: `vendor/bin/psalm`
 * ...?
 * Profit!
 
+## Swagger / OpenAPI documentation
+Run `composer run docs` to generate api-docs.json file to use in Swagger UI
+
 ## Docker
 TODO

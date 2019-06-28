@@ -14,7 +14,8 @@
         "symfony/framework-bundle": "4.2.*",
         "symfony/property-access": "4.2.*",
         "symfony/serializer": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "zircote/swagger-php": "^3.0"
     },
     "config": {
         "preferred-install": {
@@ -41,6 +42,7 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "docs": "./vendor/bin/openapi --output api-docs.json --bootstrap ./src/Swagger.php src",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"

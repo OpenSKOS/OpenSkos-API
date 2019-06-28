@@ -5,6 +5,7 @@
 /public/bundles/
 /var/
 /vendor/
+api-docs.json
 ###< symfony/framework-bundle ###
 
 .DS_Store
