@@ -1,0 +1,28 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+
+
+imports:
+  - { resource: './packages/databases.yaml' }
+
+services:
+    # default configuration for services in *this* file
+
+
+  App\Serializer\ListResponseNormalizer:
+      tags: ['serializer.normalizer']
+      arguments: ['@Symfony\Component\Serializer\Normalizer\ObjectNormalizer']
+
+  App\Serializer\ScalarResponseNormalizer:
+    tags: ['serializer.normalizer']
+    arguments: ['@Symfony\Component\Serializer\Normalizer\ObjectNormalizer']
+
+  App\Serializer\RdfEncoder:
+    tags: ['serializer.encoder']
+
+  App\Rest\ArgumentResolver\ApiRequestResolver:
+      tags: ['controller.argument_value_resolver']
